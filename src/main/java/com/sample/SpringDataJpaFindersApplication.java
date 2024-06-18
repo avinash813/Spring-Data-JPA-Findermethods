@@ -29,6 +29,19 @@ public class SpringDataJpaFindersApplication {
 		
 		List<ResultView3> list3 = service.fetchByCountry("india", ResultView3.class);
 		list3.forEach(c->System.out.println(c.getPrice()));
+     
+//	service.searchByVaccinePrice(6352).forEach(v->System.out.println(v));
+//	service.searchByCountryName("India").forEach(v->System.out.println(v));
+	
+	//service.searchByPriceLessThan(45454).forEach(v->System.out.println(v));
+	List<String> vaccines=new ArrayList<>();
+	vaccines.add("pfizer");
+	vaccines.add("sputnik");
+	vaccines.add("Covaxin");
+	
+	service.searchByVaccineNameInAndPriceBetween(vaccines, 345,565745).
+	forEach(v->System.out.println(v));
+	
 		
 		context.close();
 	}
