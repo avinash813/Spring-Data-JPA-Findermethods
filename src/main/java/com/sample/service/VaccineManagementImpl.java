@@ -27,6 +27,39 @@ public class VaccineManagementImpl implements IVaccineManagement {
 		return repo.findByCountry(vaccineName, cls);
 	}
 
+	@Override
+	public List<VaccineInfo> searchByVaccinePrice(Integer price) {
+		System.out.println("My CustomFinder method implemented by " + repo.getClass().getName());
+		
+		List<VaccineDetails> list =repo.findByPrice(price);
+	
+
+		return list;	
+	}
+
+	@Override
+	public List<VaccineInfo> searchByCountryName(String countryName) {
+//		return repo.findByCountry(countryName);
+		//return repo.findByCountryIs(countryName);
+		return repo.findByCountryEquals(countryName);
+		
+		
+	}
+
+	@Override
+	public List<VaccineInfo> searchByPriceLessThan(Integer price) {
+	
+		return  repo.findByPriceLessThan(price);
+	}
+
+	@Override
+	public List<VaccineInfo> searchByVaccineNameInAndPriceBetween(Collection<String> vaccines, Integer staringPrice,
+			Integer endPrice) {
+		
+		return repo.findByVaccineNameInAndPriceBetween(vaccines, staringPrice, endPrice);
+	}
+	
+
 
 
 
