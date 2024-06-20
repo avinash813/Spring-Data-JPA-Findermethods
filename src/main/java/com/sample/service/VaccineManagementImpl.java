@@ -32,8 +32,6 @@ public class VaccineManagementImpl implements IVaccineManagement {
 		System.out.println("My CustomFinder method implemented by " + repo.getClass().getName());
 		
 		List<VaccineDetails> list =repo.findByPrice(price);
-	
-
 		return list;	
 	}
 
